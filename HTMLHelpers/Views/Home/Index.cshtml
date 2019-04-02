@@ -1,0 +1,137 @@
+﻿
+@model HTMLHelpers.Controllers.Persona
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Formulario</h2> 
+
+<h4>@ViewBag.Message</h4>
+
+@using (Html.BeginForm())
+{
+<div>
+    <div>
+        @Html.LabelFor(Model => Model.Nombre)
+        @Html.EditorFor(Model => Model.Nombre)
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.Apellido)
+        @Html.EditorFor(Model => Model.Apellido)
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.Cedula)
+        @Html.EditorFor(Model => Model.Cedula)
+    </div>
+    <div>
+        @{
+            var Edad = new List<SelectListItem>()
+{
+new SelectListItem()
+{
+    Text ="15",
+    Value ="0"
+
+},new SelectListItem()
+{
+    Text ="16",
+    Value ="1"
+
+},new SelectListItem()
+{
+    Text ="17",
+    Value ="2"
+
+},new SelectListItem()
+{
+    Text ="18",
+    Value ="3"
+
+},new SelectListItem()
+{
+    Text ="19",
+    Value ="4"
+
+},new SelectListItem()
+{
+    Text ="20",
+    Value ="5"
+
+},new SelectListItem()
+{
+    Text ="21",
+    Value ="6"
+
+},new SelectListItem()
+{
+    Text ="22",
+    Value ="7"
+
+},new SelectListItem()
+{
+    Text ="23",
+    Value ="8"
+
+},new SelectListItem()
+{
+    Text ="24",
+    Value ="9"
+
+},new SelectListItem()
+
+
+};
+        }
+        @Html.DropDownList("miDropDownList", Edad)
+    </div>
+    <div>
+
+        @Html.LabelFor(Model => Model.Telefono)
+        @Html.EditorFor(Model => Model.Telefono)
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.Correo)
+        @Html.EditorFor(Model => Model.Correo)
+    </div>
+    @{
+        var generos = new List<SelectListItem>()
+{
+    new SelectListItem()
+    {
+        Text ="Masculino",
+        Value ="0"
+
+    },new SelectListItem()
+    {
+        Text ="Femenino",
+        Value ="1"
+
+    }
+
+};
+    }
+    @Html.DropDownList("miDropDownList", generos)
+    
+    <div>
+        Select EstadoCivil:<br />
+        Soltero <input type="radio" name="EstadoCi" value="Soltero" />
+        Casado <input type="radio" name="EstadoCi" value="Casado" />
+        Viudo <input type="radio" name="EstadoCi" value="Viudo" />
+        Union Libre <input type="radio" name="EstadoCi" value="UnionLibre" />
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.Pasatiempo)
+        Escribir <input type="checkbox" name="Pasa" value="Escribir" />
+        Leer <input type="checkbox" name="Pasa" value="Leer" />
+        Escuchar Musica <input type="checkbox" name="Pasa" value="EscucharMusica" />
+        Ver Series <input type="checkbox" name="Pasa" value="VerSeries" />
+    </div>
+
+
+
+</div>
+
+<input type="submit" value="enviar" />
+
+}
+
